@@ -25,13 +25,13 @@ The dataset used for training the vehicle detection model can be found here: htt
 - Make sure you have a MySQL server running.
 
 - Configure the MySQL connection in 'app.py':
- Modify the following variables according to your MySQL configuration
+ # Modify the following variables according to your MySQL configuration
 ``` python
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'username'
 app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'database_name'
-
+```
 - Run the Flask application:
   python app.py
 - Access the application in your web browser at http://localhost:80.
