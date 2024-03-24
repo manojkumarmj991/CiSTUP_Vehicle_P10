@@ -26,6 +26,7 @@ The dataset used for training the vehicle detection model can be found here: htt
 
 - Configure the MySQL connection in app.py:
 # Modify the following variables according to your MySQL configuration
+``` python
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'username'
 app.config['MYSQL_PASSWORD'] = 'password'
