@@ -36,10 +36,10 @@ app.config['MYSQL_DB'] = 'database_name'
 - Access the application in your web browser at http://localhost:80.
 
 ## 5. Directory Structure:
-app.py: *Main Flask application file.*
-templates/: *Contains HTML templates for the Flask application.*
-static/: *Contains static files (e.g., CSS, JavaScript).*
-requirements.txt: *List of Python dependencies for the project.*
-Dockerfile: *Dockerfile for building the Docker image.*
-docker-compose.yml: *Docker Compose YAML file for running the application with Docker.*
+- app.py: *Main Flask application file.*
+- templates/: *Contains HTML templates for the Flask application.*
+- static/: *Contains static files (e.g., CSS, JavaScript).*
+- requirements.txt: *List of Python dependencies for the project.*
+- Dockerfile: *Dockerfile for building the Docker image.*
+- docker-compose.yml: *Docker Compose YAML file for running the application with Docker.*
 
