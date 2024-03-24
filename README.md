@@ -1,5 +1,5 @@
 ﻿# CiSTUP_Vehicle_P10
-Project 10 @ Web Development
+Project 10 @ Web Development ( with demo VIDEO )
 
 # Vehicle Detection Project
 
@@ -44,3 +44,5 @@ app.config['MYSQL_DB'] = 'database_name'
 - Dockerfile: *Dockerfile for building the Docker image.*
 - docker-compose.yml: *Docker Compose YAML file for running the application with Docker.*
 
+## 6. Demo Video:
+A demonstration video showcasing the execution of the project is available in the repository.
