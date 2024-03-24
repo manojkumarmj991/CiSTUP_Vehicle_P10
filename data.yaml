@@ -1,0 +1,17 @@
+names:
+- bus
+- motorbike
+- person
+- train
+- truck
+- vehicle
+nc: 6
+roboflow:
+  license: CC BY 4.0
+  project: check-xjfsb
+  url: https://universe.roboflow.com/cs-6fbpy/check-xjfsb/dataset/11
+  version: 11
+  workspace: cs-6fbpy
+test: test/images
+train: train/images
+val: valid/images

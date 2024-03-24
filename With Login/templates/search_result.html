@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Results</title>
+</head>
+
+<body>
+    <h2>Search Results for "{{ search_query }}":</h2>
+    {% if results %}
+    <ul>
+        {% for filename in results %}
+        <li><img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="{{ filename }}"
+                style="width: 200px;"></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+    <a href="{{ url_for('search') }}">Back to Search</a>
+</body>
+
+</html>

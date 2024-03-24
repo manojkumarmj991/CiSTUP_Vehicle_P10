@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Object Detection</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        .navbar {
+            margin-top: 10px;
+            float: right;
+        }
+
+        .form-group {
+            margin-top: 5%;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .confidence {
+            font-weight: bold;
+        }
+
+        .search-results img {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="{{url_for('logout')}}">
+            <button class="btn btn-danger">Logout</button>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-12 d-flex justify-content-end">
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-md-6 mx-auto text-center">
+                <h2>Upload Image for Object Detection</h2>
+
+                <form action="{{ url_for('upload_image') }}" method="post" enctype="multipart/form-data" class="mb-3">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    {% if uploaded_filename %}
+                    <button type="submit" formaction="{{ url_for('detect_objects') }}"
+                        class="btn btn-success ml-2">Detect Objects</button>
+                    {% endif %}
+                </form>
+
+            </div>
+        </div>
+
+        {% if uploaded_filename %}
+        <div class="row my-3">
+            <div class="col-md-6">
+                <h2>Uploaded Image</h2>
+                <img src="{{ url_for('static', filename='uploads/' ~ uploaded_filename) }}" alt="Uploaded Image"
+                    class="image-preview">
+            </div>
+            <div class="col-md-6">
+                {% if detection_filename %}
+                <h2>Detected Objects</h2>
+                <img src="{{ url_for('static', filename='uploads/' ~ detection_filename) }}" alt="Detected Objects"
+                    class="image-preview">
+                <ul class="list-group mt-3">
+                    {% for obj in detected_objects %}
+                    <li class="list-group-item">{{ obj.label }} <span class="badge badge-secondary confidence">{{
+                            obj.confidence }}%</span></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="row my-3">
+            <div class="col-md-6 mx-auto text-center">
+                {% if counts %}
+                <ul class="list-group mt-3">
+                    <li class="list-group-item">Type <span class="badge badge-secondary confidence">Count</span></li>
+                    {% for key,value in counts.items() %}
+                    <li class="list-group-item">{{ key }} <span class="badge badge-secondary confidence">{{ value
+                            }}</span></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
